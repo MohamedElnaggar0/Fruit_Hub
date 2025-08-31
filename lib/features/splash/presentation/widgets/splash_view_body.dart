@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
-import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -21,12 +20,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       setState(() {
         opacityLevel = 1.0;
       });
-    });
-
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.of(
-        context,
-      ).pushReplacement(MaterialPageRoute(builder: (_) => OnboardingView()));
     });
   }
 
