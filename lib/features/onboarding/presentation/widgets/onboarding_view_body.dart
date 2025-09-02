@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/configs/models/page_view_model.dart';
+import 'package:fruit_hub/core/configs/router/app_router.dart';
 import 'package:fruit_hub/core/utils/constanst.dart';
 import 'package:fruit_hub/core/widgets/custom_bottom.dart';
 import 'package:fruit_hub/features/onboarding/presentation/widgets/custom_page_view_item.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -53,14 +55,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               },
             ),
           ),
-          currentPage == PageViewModel.pageViewItems.length - 1
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: CustomBottom(text: 'ابدأ الان', onTap: () {}),
-                )
-              : SizedBox.shrink(),
-
-          SizedBox(height: 50),
           SmoothPageIndicator(
             controller: controller,
             count: PageViewModel.pageViewItems.length,
@@ -72,6 +66,21 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               expansionFactor: 3,
             ),
           ),
+          SizedBox(height: 50),
+
+          currentPage == PageViewModel.pageViewItems.length - 1
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: CustomBottom(
+                    text: 'ابدأ الان',
+                    onTap: () {
+                      GoRouter.of(context).go(AppRouter.kSignInView);
+                      print('tapped!!!!!!!!!!!!!!!!!!!');
+                    },
+                  ),
+                )
+              : const SizedBox(height: 60),
+
           const SizedBox(height: 24),
         ],
       ),
