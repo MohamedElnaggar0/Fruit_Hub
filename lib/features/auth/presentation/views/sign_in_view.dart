@@ -7,9 +7,12 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(text: 'تسجيل دخول'),
-      body: SignInViewBody(),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: const Scaffold(
+        appBar: CustomAppBar(text: 'تسجيل دخول'),
+        body: SignInViewBody(),
+      ),
     );
   }
 }
