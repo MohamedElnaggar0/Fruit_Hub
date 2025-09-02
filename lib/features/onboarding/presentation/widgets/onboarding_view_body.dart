@@ -75,7 +75,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     text: 'ابدأ الان',
                     onTap: () {
                       GoRouter.of(context).go(AppRouter.kSignInView);
-                      print('tapped!!!!!!!!!!!!!!!!!!!');
                     },
                   ),
                 )
